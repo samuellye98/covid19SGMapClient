@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { trackPromise } from 'react-promise-tracker';
+import { LoadingIndicator } from './Loader.js';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './Map.scss';
@@ -9,10 +11,7 @@ import {
 } from './layers';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-const api =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:9000'
-    : 'https://covid19sgmap.herokuapp.com/';
+const api = process.env.REACT_APP_GEOJSON_API;
 
 // const geolocateStyle = {
 //   float: 'left',
@@ -25,22 +24,21 @@ function Map() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(api)
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res);
-      })
-      .catch(console.log);
+    trackPromise(
+      fetch(api)
+        .then((res) => res.json())
+        .then((res) => {
+          setData(res);
+        })
+        .catch(console.log)
+    );
   }, []);
 
   useEffect(() => {
-    if (data) {
+    if (data.length !== 0) {
       const map = new mapboxgl.Map({
         container: mapboxElRef.current,
         style: 'mapbox://styles/mapbox/streets-v11',
-        // latitude: 1.3521,
-        // longitude: 103.8198,
-        //   zoom: 10.5,
         center: [103.8198, 1.3521], // initial geo location
         zoom: 10.5, // initial zoom
       });
@@ -49,8 +47,7 @@ function Map() {
 
       // Call this method when the map is loaded
       map.once('load', function () {
-        // Add our SOURCE
-        // with id "points"
+        // Add SOURCE with id "points"
         map.addSource('cases', {
           type: 'geojson',
           data: data,
@@ -58,7 +55,7 @@ function Map() {
           clusterRadius: 50,
         });
 
-        // Add our layer
+        // Add layers
         map.addLayer(clusterLayer);
         map.addLayer(clusterCountLayer);
         map.addLayer(unclusteredPointLayer);
@@ -130,11 +127,12 @@ function Map() {
   }, [data]);
 
   return (
-    <div className="App">
+    <>
+      <LoadingIndicator />
       <div className="mapContainer">
         <div className="mapBox" ref={mapboxElRef} />
       </div>
-    </div>
+    </>
   );
 }
 
