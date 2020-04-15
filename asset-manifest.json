@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/covid19SGMapClient/static/css/main.7c1c224f.chunk.css",
-    "main.js": "/covid19SGMapClient/static/js/main.0b1f4cb3.chunk.js",
+    "main.js": "/covid19SGMapClient/static/js/main.b0dbfcb3.chunk.js",
     "runtime-main.js": "/covid19SGMapClient/static/js/runtime-main.4f09e178.js",
     "static/css/2.e6bc587c.chunk.css": "/covid19SGMapClient/static/css/2.e6bc587c.chunk.css",
-    "static/js/2.91605544.chunk.js": "/covid19SGMapClient/static/js/2.91605544.chunk.js",
+    "static/js/2.cbbdbfe6.chunk.js": "/covid19SGMapClient/static/js/2.cbbdbfe6.chunk.js",
     "index.html": "/covid19SGMapClient/index.html",
-    "precache-manifest.024e06e38965cc3ca767eba70b2fa50b.js": "/covid19SGMapClient/precache-manifest.024e06e38965cc3ca767eba70b2fa50b.js",
+    "precache-manifest.c82823b3caaf306670a5fa69aeb0988b.js": "/covid19SGMapClient/precache-manifest.c82823b3caaf306670a5fa69aeb0988b.js",
     "service-worker.js": "/covid19SGMapClient/service-worker.js",
-    "static/js/2.91605544.chunk.js.LICENSE.txt": "/covid19SGMapClient/static/js/2.91605544.chunk.js.LICENSE.txt"
+    "static/js/2.cbbdbfe6.chunk.js.LICENSE.txt": "/covid19SGMapClient/static/js/2.cbbdbfe6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4f09e178.js",
     "static/css/2.e6bc587c.chunk.css",
-    "static/js/2.91605544.chunk.js",
+    "static/js/2.cbbdbfe6.chunk.js",
     "static/css/main.7c1c224f.chunk.css",
-    "static/js/main.0b1f4cb3.chunk.js"
+    "static/js/main.b0dbfcb3.chunk.js"
   ]
 }
