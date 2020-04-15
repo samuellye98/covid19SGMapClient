@@ -9,19 +9,23 @@ import {
 } from './layers';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+const api =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:9000'
+    : 'https://covid19sgmap.herokuapp.com/';
 
-const geolocateStyle = {
-  float: 'left',
-  margin: '50px',
-  padding: '10px',
-};
+// const geolocateStyle = {
+//   float: 'left',
+//   margin: '50px',
+//   padding: '10px',
+// };
 
 function Map() {
   const mapboxElRef = useRef(null);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://covid19sgmap.herokuapp.com/')
+    fetch(api)
       .then((res) => res.json())
       .then((res) => {
         setData(res);
@@ -30,7 +34,6 @@ function Map() {
   }, []);
 
   useEffect(() => {
-    console.log(data, 'data');
     if (data) {
       const map = new mapboxgl.Map({
         container: mapboxElRef.current,
