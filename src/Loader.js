@@ -8,12 +8,14 @@ export const LoadingIndicator = () => {
     promiseInProgress && (
       <div
         style={{
-          width: '100%',
+          width: '100vw',
+          backgroundColor: 'black',
           height: '100vh',
           display: 'flex',
           margin: '0 auto',
           justifyContent: 'center',
           alignItems: 'center',
+          position: 'absolute',
         }}
       >
         <Loader type="Grid" color="#00BFFF" height={80} width={80} />

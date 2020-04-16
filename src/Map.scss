@@ -1,25 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap');
+
+html,
+body {
+  box-sizing: border-box;
+  font-size: 10px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
-.App {
-  // display: flex;
-  // width: 100%;
-  // height: 100%;
-  // justify-content: center;
-  // align-items: center;
+.indexContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 /*  Make our map take the full viewport - 100% */
 #root,
-.mapContainer,
 .mapBox {
   width: 100vw;
   height: 100vh;
+}
+
+.mapHeader {
+  background-color: #00bfff;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  color: white;
 }
 
 /* Tooltip code */

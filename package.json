@@ -10,12 +10,14 @@
     "mapbox-gl": "^1.9.1",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
+    "react-data-table-component": "^6.7.1",
     "react-dom": "^16.13.1",
     "react-loader-spinner": "^3.1.14",
     "react-map-gl": "^5.2.3",
     "react-promise-tracker": "^2.1.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,6 +44,5 @@
   },
   "devDependencies": {
     "gh-pages": "^2.2.0"
-  },
-  "proxy": "http://localhost:5000/"
+  }
 }

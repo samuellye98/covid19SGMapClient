@@ -1,5 +1,59 @@
 export const clusterLayer = {
   id: 'clusters',
+  source: 'covid19sg', // this should be the id of source
+  type: 'circle',
+  paint: {
+    'circle-opacity': 0.75,
+    'circle-stroke-width': [
+      'interpolate',
+      ['linear'],
+      ['get', 'numCases'],
+      1,
+      1,
+      100,
+      1.75,
+    ],
+    'circle-radius': [
+      'interpolate',
+      ['linear'],
+      ['get', 'numCases'],
+      1,
+      4,
+      10,
+      8,
+      50,
+      10,
+      100,
+      14,
+      200,
+      18,
+      500,
+      40,
+    ],
+    'circle-color': [
+      'interpolate',
+      ['linear'],
+      ['get', 'numCases'],
+      1,
+      '#ffffb2',
+      10,
+      '#fed976',
+      20,
+      '#feb24c',
+      50,
+      '#fd8d3c',
+      100,
+      '#fc4e2a',
+      200,
+      '#e31a1c',
+      500,
+      '#b10026',
+    ],
+  },
+};
+
+export const casesLayer = {
+  id: 'clusters',
   type: 'circle',
   source: 'cases',
   filter: ['has', 'point_count'],
@@ -14,10 +68,10 @@ export const clusterLayer = {
       '#f28cb1',
     ],
     'circle-radius': ['step', ['get', 'point_count'], 20, 100, 30, 750, 40],
-  }
+  },
 };
 
-export const clusterCountLayer = {
+export const casesCountLayer = {
   id: 'cluster-count',
   type: 'symbol',
   source: 'cases',
